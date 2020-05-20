@@ -1,0 +1,528 @@
+package tic_tac_toe;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
+import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+
+class Player
+{
+	Player(String p1,String p2)
+	{
+		DataTypes.player1=p1;
+		DataTypes.player2=p2;
+		fx();
+	}
+	Player()
+	{
+		resetConditionalOprtr1();
+		resetConditionalOprtr2();
+		fx();
+	}
+	static class DataTypes
+	{
+		static Button boxes[]=new Button[9];
+		static String player1,player2;
+		static GridPane upperGrid=new GridPane();
+		static Text upperPlayer=new Text();
+		static boolean clicked[]=new boolean[9];
+		static Font font=new Font(40);
+	}
+	static class ConditionalOprtP1
+	{
+		static boolean horizontal[]=new boolean[9];
+		static boolean vertical[]=new boolean[9];
+		static boolean diagonal[]=new boolean[9];
+		
+	}
+	static class ConditionalOprtP2
+	{
+		static boolean horizontal[]=new boolean[9];
+		static boolean vertical[]=new boolean[9];
+		static boolean diagonal[]=new boolean[9];
+	}
+	Scene scene;
+	int k=0;
+	void fx()
+	{
+		GridPane grid=new GridPane();
+		grid.setAlignment(Pos.BASELINE_CENTER);
+		grid.setHgap(5);
+		grid.setVgap(5);
+		
+		for(int i=0;i<9;i++)
+		{
+			DataTypes.boxes[i]=new Button();
+			DataTypes.boxes[i].setPrefSize(145, 145);
+			DataTypes.boxes[i].setFont(DataTypes.font);
+		}
+		grid.add(DataTypes.upperPlayer, 1, 0);
+		for(int i=5;i<8;i++)
+			for(int j=0;j<3;j++)
+			{
+				grid.add(DataTypes.boxes[k++], j,i);
+			}
+		scene=new Scene(grid);
+		StartWindow.stage.setScene(scene);
+		player1Action(DataTypes.player1);
+	}
+	void player1Action(String player)
+	{
+		DataTypes.upperPlayer.setText(player);
+			DataTypes.boxes[0].setOnAction(x->{
+				
+				if(!DataTypes.clicked[0])
+				{
+					DataTypes.boxes[0].setText("0");
+					DataTypes.clicked[0]=true;
+					ConditionalOprtP1.diagonal[0]=true;
+					ConditionalOprtP1.horizontal[0]=true;
+					ConditionalOprtP1.vertical[0]=true;
+					if(player1Check())
+					{
+						Alert msg=new Alert(AlertType.CONFIRMATION);
+						msg.setContentText("Congratulations "+player+" You Are Winner");
+						msg.show();
+						msg.setOnHidden(y->{
+							new Player();
+						});
+					}
+					else
+						player2Action(DataTypes.player2);
+					}
+			});
+			DataTypes.boxes[1].setOnAction(x->{
+				
+				if(!DataTypes.clicked[1])
+				{
+					DataTypes.boxes[1].setText("0");
+					DataTypes.clicked[1]=true;
+					ConditionalOprtP1.diagonal[1]=true;
+					ConditionalOprtP1.horizontal[1]=true;
+					ConditionalOprtP1.vertical[1]=true;
+					if(player1Check())
+					{
+						Alert msg=new Alert(AlertType.CONFIRMATION);
+						msg.setContentText("Congratulations "+player+" You Are Winner");
+						msg.show();
+						msg.setOnHidden(y->{
+							new Player();
+						});
+					}
+					else
+						player2Action(DataTypes.player2);
+					}
+			});
+			DataTypes.boxes[2].setOnAction(x->{
+				
+				if(!DataTypes.clicked[2])
+				{
+					DataTypes.boxes[2].setText("0");
+					DataTypes.clicked[2]=true;
+					ConditionalOprtP1.diagonal[2]=true;
+					ConditionalOprtP1.horizontal[2]=true;
+					ConditionalOprtP1.vertical[2]=true;
+					if(player1Check())
+					{
+						Alert msg=new Alert(AlertType.CONFIRMATION);
+						msg.setContentText("Congratulations "+player+" You Are Winner");
+						msg.show();
+						msg.setOnHidden(y->{
+							new Player();
+						});
+					}
+					else
+						player2Action(DataTypes.player2);
+					}
+			});
+			DataTypes.boxes[3].setOnAction(x->{
+				
+				if(!DataTypes.clicked[3])
+				{
+					DataTypes.boxes[3].setText("0");
+					DataTypes.clicked[3]=true;
+					ConditionalOprtP1.diagonal[3]=true;
+					ConditionalOprtP1.horizontal[3]=true;
+					ConditionalOprtP1.vertical[3]=true;
+					if(player1Check())
+					{
+						Alert msg=new Alert(AlertType.CONFIRMATION);
+						msg.setContentText("Congratulations "+player+" You Are Winner");
+						msg.show();
+						msg.setOnHidden(y->{
+							new Player();
+						});
+					}
+					else
+						player2Action(DataTypes.player2);
+					}
+			});
+			DataTypes.boxes[4].setOnAction(x->{
+				
+				if(!DataTypes.clicked[4])
+				{
+					DataTypes.boxes[4].setText("0");
+					DataTypes.clicked[4]=true;
+					ConditionalOprtP1.diagonal[4]=true;
+					ConditionalOprtP1.horizontal[4]=true;
+					ConditionalOprtP1.vertical[4]=true;
+					if(player1Check())
+					{
+						Alert msg=new Alert(AlertType.CONFIRMATION);
+						msg.setContentText("Congratulations "+player+" You Are Winner");
+						msg.show();
+						msg.setOnHidden(y->{
+							new Player();
+						});
+					}
+					else
+						player2Action(DataTypes.player2);
+					}
+			});
+			DataTypes.boxes[5].setOnAction(x->{
+				
+				if(!DataTypes.clicked[5])
+				{
+					DataTypes.boxes[5].setText("0");
+					DataTypes.clicked[5]=true;
+					ConditionalOprtP1.diagonal[5]=true;
+					ConditionalOprtP1.horizontal[5]=true;
+					ConditionalOprtP1.vertical[5]=true;
+					if(player1Check())
+					{
+						Alert msg=new Alert(AlertType.CONFIRMATION);
+						msg.setContentText("Congratulations "+player+" You Are Winner");
+						msg.show();
+						msg.setOnHidden(y->{
+							new Player();
+						});
+					}
+					else
+						player2Action(DataTypes.player2);
+					}
+			});
+			DataTypes.boxes[6].setOnAction(x->{
+				
+				if(!DataTypes.clicked[6])
+				{
+					DataTypes.boxes[6].setText("0");
+					DataTypes.clicked[6]=true;
+					ConditionalOprtP1.diagonal[6]=true;
+					ConditionalOprtP1.horizontal[6]=true;
+					ConditionalOprtP1.vertical[6]=true;
+					if(player1Check())
+					{
+						Alert msg=new Alert(AlertType.CONFIRMATION);
+						msg.setContentText("Congratulations "+player+" You Are Winner");
+						msg.show();
+						msg.setOnHidden(y->{
+							new Player();
+						});
+					}
+					else
+						player2Action(DataTypes.player2);
+					}
+			});
+			DataTypes.boxes[7].setOnAction(x->{
+				
+				if(!DataTypes.clicked[7])
+				{
+					DataTypes.boxes[7].setText("0");
+					DataTypes.clicked[7]=true;
+					ConditionalOprtP1.diagonal[7]=true;
+					ConditionalOprtP1.horizontal[7]=true;
+					ConditionalOprtP1.vertical[7]=true;
+					if(player1Check())
+					{
+						Alert msg=new Alert(AlertType.CONFIRMATION);
+						msg.setContentText("Congratulations "+player+" You Are Winner");
+						msg.show();
+						msg.setOnHidden(y->{
+							new Player();
+						});
+					}
+					else
+						player2Action(DataTypes.player2);
+					}
+			});
+			DataTypes.boxes[8].setOnAction(x->{
+				
+				if(!DataTypes.clicked[8])
+				{
+					DataTypes.boxes[8].setText("0");
+					DataTypes.clicked[8]=true;
+					ConditionalOprtP1.diagonal[8]=true;
+					ConditionalOprtP1.horizontal[8]=true;
+					ConditionalOprtP1.vertical[8]=true;
+					if(player1Check())
+					{
+						Alert msg=new Alert(AlertType.CONFIRMATION);
+						msg.setContentText("Congratulations "+player+" You Are Winner");
+						msg.show();
+						msg.setOnHidden(y->{
+							new Player();
+						});
+					}
+					else
+						player2Action(DataTypes.player2);
+					}
+			});
+		}
+	void player2Action(String player)
+	{
+		DataTypes.upperPlayer.setText(player);
+		DataTypes.boxes[0].setOnAction(x->{
+			
+			if(!DataTypes.clicked[0])
+			{
+				DataTypes.boxes[0].setText("X");
+				DataTypes.clicked[0]=true;
+				ConditionalOprtP2.horizontal[0]=true;
+				ConditionalOprtP2.vertical[0]=true;
+				ConditionalOprtP2.diagonal[0]=true;
+				if(player2Check())
+				{
+					Alert msg=new Alert(AlertType.CONFIRMATION);
+					msg.setContentText("Congratulations "+player+" You Are Winner");
+					msg.show();
+					msg.setOnHidden(y->{
+						new Player();
+					});
+				}
+				else
+					player1Action(DataTypes.player1);
+				}
+		});
+
+		DataTypes.boxes[1].setOnAction(x->{
+			
+			if(!DataTypes.clicked[1])
+			{
+				DataTypes.boxes[1].setText("X");
+				DataTypes.clicked[1]=true;
+				ConditionalOprtP2.horizontal[1]=true;
+				ConditionalOprtP2.vertical[1]=true;
+				ConditionalOprtP2.diagonal[1]=true;
+				if(player2Check())
+				{
+					Alert msg=new Alert(AlertType.CONFIRMATION);
+					msg.setContentText("Congratulations "+player+" You Are Winner");
+					msg.show();
+					msg.setOnHidden(y->{
+						new Player();
+					});
+				}
+				else
+					player1Action(DataTypes.player1);
+				}
+		});
+		DataTypes.boxes[2].setOnAction(x->{
+			
+			if(!DataTypes.clicked[2])
+			{
+				DataTypes.boxes[2].setText("X");
+				DataTypes.clicked[2]=true;
+				ConditionalOprtP2.horizontal[2]=true;
+				ConditionalOprtP2.vertical[2]=true;
+				ConditionalOprtP2.diagonal[2]=true;
+				if(player2Check())
+				{
+					Alert msg=new Alert(AlertType.CONFIRMATION);
+					msg.setContentText("Congratulations "+player+" You Are Winner");
+					msg.show();
+					msg.setOnHidden(y->{
+						new Player();
+					});
+				}
+				else
+					player2Action(DataTypes.player1);
+				}
+		});
+		DataTypes.boxes[3].setOnAction(x->{
+			
+			if(!DataTypes.clicked[3])
+			{
+				DataTypes.boxes[3].setText("X");
+				DataTypes.clicked[3]=true;
+				ConditionalOprtP2.horizontal[3]=true;
+				ConditionalOprtP2.vertical[3]=true;
+				ConditionalOprtP2.diagonal[3]=true;
+				if(player1Check())
+				{
+					Alert msg=new Alert(AlertType.CONFIRMATION);
+					msg.setContentText("Congratulations "+player+" You Are Winner");
+					msg.show();
+					msg.setOnHidden(y->{
+						new Player();
+					});
+				}
+				else
+					player1Action(DataTypes.player1);
+				}
+		});
+		DataTypes.boxes[4].setOnAction(x->{
+			
+			if(!DataTypes.clicked[4])
+			{
+				DataTypes.boxes[4].setText("X");
+				DataTypes.clicked[4]=true;
+				ConditionalOprtP2.horizontal[4]=true;
+				ConditionalOprtP2.vertical[4]=true;
+				ConditionalOprtP2.diagonal[4]=true;
+				if(player2Check())
+				{
+					Alert msg=new Alert(AlertType.CONFIRMATION);
+					msg.setContentText("Congratulations "+player+" You Are Winner");
+					msg.show();
+					msg.setOnHidden(y->{
+						new Player();
+					});
+				}
+				else
+					player1Action(DataTypes.player1);
+				}
+		});
+		DataTypes.boxes[5].setOnAction(x->{
+			
+			if(!DataTypes.clicked[5])
+			{
+				DataTypes.boxes[5].setText("X");
+				DataTypes.clicked[5]=true;
+				ConditionalOprtP2.horizontal[5]=true;
+				ConditionalOprtP2.vertical[5]=true;
+				ConditionalOprtP2.diagonal[5]=true;
+				if(player2Check())
+				{
+					Alert msg=new Alert(AlertType.CONFIRMATION);
+					msg.setContentText("Congratulations "+player+" You Are Winner");
+					msg.show();
+					msg.setOnHidden(y->{
+						new Player();
+					});
+				}
+				else	
+					player1Action(DataTypes.player1);
+				}
+		});
+		DataTypes.boxes[6].setOnAction(x->{
+			
+			if(!DataTypes.clicked[6])
+			{
+				DataTypes.boxes[6].setText("X");
+				DataTypes.clicked[6]=true;
+				ConditionalOprtP2.horizontal[6]=true;
+				ConditionalOprtP2.vertical[6]=true;
+				ConditionalOprtP2.diagonal[6]=true;
+				if(player2Check())
+				{
+					Alert msg=new Alert(AlertType.CONFIRMATION);
+					msg.setContentText("Congratulations "+player+" You Are Winner");
+					msg.show();
+					msg.setOnHidden(y->{
+						new Player();
+					});
+				}
+				else
+					player1Action(DataTypes.player1);
+				}
+		});
+		DataTypes.boxes[7].setOnAction(x->{
+			
+			if(!DataTypes.clicked[7])
+			{
+				DataTypes.boxes[7].setText("X");
+				DataTypes.clicked[7]=true;
+				ConditionalOprtP2.horizontal[7]=true;
+				ConditionalOprtP2.vertical[7]=true;
+				ConditionalOprtP2.diagonal[7]=true;
+				if(player2Check())
+				{
+					Alert msg=new Alert(AlertType.CONFIRMATION);
+					msg.setContentText("Congratulations "+player+" You Are Winner");
+					msg.show();
+					msg.setOnHidden(y->{
+						new Player();
+					});
+				}
+				else
+					player1Action(DataTypes.player1);
+				}
+		});
+		DataTypes.boxes[8].setOnAction(x->{
+			
+			if(!DataTypes.clicked[8])
+			{
+				DataTypes.boxes[8].setText("X");
+				DataTypes.clicked[8]=true;
+				ConditionalOprtP2.horizontal[8]=true;
+				ConditionalOprtP2.vertical[8]=true;
+				ConditionalOprtP2.diagonal[8]=true;
+				if(player2Check())
+				{
+					Alert msg=new Alert(AlertType.CONFIRMATION);
+					msg.setContentText("Congratulations "+player+" You Are Winner");
+					msg.show();
+					msg.setOnHidden(y->{
+						new Player();
+					});
+				}
+				else
+					player1Action(DataTypes.player1);
+				}
+		});
+	}
+	public boolean player1Check()
+	{
+		if(ConditionalOprtP1.horizontal[0]&&ConditionalOprtP1.horizontal[1]&&ConditionalOprtP1.horizontal[2]||
+				ConditionalOprtP1.horizontal[3]&&ConditionalOprtP1.horizontal[4]&&ConditionalOprtP1.horizontal[5]
+				||ConditionalOprtP1.horizontal[6]&&ConditionalOprtP1.horizontal[7]&&ConditionalOprtP1.horizontal[8])
+			return true;
+		else if(ConditionalOprtP1.vertical[0]&&ConditionalOprtP1.vertical[3]&&ConditionalOprtP1.vertical[6]||
+				ConditionalOprtP1.vertical[1]&&ConditionalOprtP1.vertical[4]&&ConditionalOprtP1.vertical[7]||
+				ConditionalOprtP1.vertical[2]&&ConditionalOprtP1.vertical[5]&&ConditionalOprtP1.vertical[8])
+			return true;
+		else if(ConditionalOprtP1.diagonal[0]&&ConditionalOprtP1.diagonal[4]&&ConditionalOprtP1.diagonal[8]||
+				ConditionalOprtP1.diagonal[2]&&ConditionalOprtP1.diagonal[4]&&ConditionalOprtP1.diagonal[6])
+			return true;
+		else
+		return false;
+	}
+	public boolean player2Check()
+	{
+		if(ConditionalOprtP2.horizontal[0]&&ConditionalOprtP2.horizontal[1]&&ConditionalOprtP2.horizontal[2]||
+				ConditionalOprtP2.horizontal[3]&&ConditionalOprtP2.horizontal[4]&&ConditionalOprtP2.horizontal[5]
+				||ConditionalOprtP2.horizontal[6]&&ConditionalOprtP2.horizontal[7]&&ConditionalOprtP2.horizontal[8])
+			return true;
+		else if(ConditionalOprtP2.vertical[0]&&ConditionalOprtP2.vertical[3]&&ConditionalOprtP2.vertical[6]||
+				ConditionalOprtP2.vertical[1]&&ConditionalOprtP2.vertical[4]&&ConditionalOprtP2.vertical[7]||
+				ConditionalOprtP2.vertical[2]&&ConditionalOprtP2.vertical[5]&&ConditionalOprtP2.vertical[8])
+			return true;
+		else if(ConditionalOprtP2.diagonal[0]&&ConditionalOprtP2.diagonal[4]&&ConditionalOprtP2.diagonal[8]||
+				ConditionalOprtP2.diagonal[2]&&ConditionalOprtP2.diagonal[4]&&ConditionalOprtP2.diagonal[6])
+			return true;
+		else
+		return false;
+	}
+	public void resetConditionalOprtr1()
+	{
+		for(int i=0;i<9;i++)
+		{
+			ConditionalOprtP1.vertical[i]=false;
+			ConditionalOprtP1.horizontal[i]=false;
+			ConditionalOprtP1.diagonal[i]=false;
+			DataTypes.clicked[i]=false;
+		}
+	}
+	public void resetConditionalOprtr2()
+	{
+		for(int i=0;i<9;i++)
+		{
+			ConditionalOprtP2.vertical[i]=false;
+			ConditionalOprtP2.horizontal[i]=false;
+			ConditionalOprtP2.diagonal[i]=false;
+		}
+	}
+}
